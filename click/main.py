@@ -8,7 +8,7 @@ from utils import load_handler
 INTERVAL = 1
 
 # click
-CLICK_HOST = '10.21.5.205'
+CLICK_HOST = '10.21.5.202'
 CLICK_PORT = 12345
 
 # influxdb
@@ -29,9 +29,10 @@ def init():
     global handlers
 
     handlers += load_handler('syshandler', ['SysRouterNumber', 'SysElementNumber', 'SysThreadNumber', 'SysElementPerThread', 'SysLoadPerThread'])
-    handlers += load_handler('nf1_handler', ['BitRateHandler'])
-    handlers += load_handler('nf2_handler', ['BitRateHandler'])
+    handlers += load_handler('nf1_handler', ['BitRateHandler', 'PktRateHandler', 'BitRateHandler1', 'PktRateHandler1', 'BitRateHandler2', 'PktRateHandler2'])
+    # handlers += load_handler('nf2_handler', ['BitRateHandler'])
     # handlers += load_handler('nf3_handler', ['TaskThreadHandler', 'TaskCostHandler', 'BitRateHandler', 'BitRateHandler0', 'BitRateHandler1', 'PktRateHandler', 'PktRateHandler0', 'PktRateHandler1'])
+    # handlers += load_handler('nf4_handler', ['BitRateHandler'])
 
     return influxdb_client, click_client
 
